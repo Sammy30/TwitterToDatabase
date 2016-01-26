@@ -2,7 +2,7 @@
 /dist/
 /nbproject/
 
-
+*.properties
 *.class
 
 # Package Files #
