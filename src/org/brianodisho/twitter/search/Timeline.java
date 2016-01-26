@@ -8,7 +8,6 @@ import twitter4j.*;
  *
  * @author brianodisho
  */
-
 public class Timeline {
 
     private final Twitter twitter;
@@ -28,7 +27,8 @@ public class Timeline {
         try {
             user = twitter.users().showUser(screenName);
         } catch (TwitterException ex) {
-            System.err.println("[TWITTER EXCEPTION]" + ex);
+            System.err.println("[TWITTER EXCEPTION]" + ex.getErrorMessage());
+            user = null;
         }
 
     }
@@ -41,12 +41,12 @@ public class Timeline {
     }
 
     // Assigns the timeline from the requested user to ResponseList<>
-    public void refreshTimeline() {
+    public void setTimeline() {
 
         try {
             timeline = (twitter.getUserTimeline(user.getId(), new Paging(1, 100)));
         } catch (TwitterException ex) {
-            System.err.println("[TWITTER EXCEPTION]" + ex);
+            System.err.println("[TWITTER EXCEPTION]" + ex.getErrorMessage());
         }
 
     }

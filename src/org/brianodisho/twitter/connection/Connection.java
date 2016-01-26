@@ -26,7 +26,7 @@ public class Connection {
 
         // Instantiate re-usable factory with the configuration provided by ConfigurationBuilder
         TwitterFactory twitterFactory = new TwitterFactory(config.build());
-
+        
         // Instantiate a new twitter instance using the factory
         twitter = twitterFactory.getInstance();
 

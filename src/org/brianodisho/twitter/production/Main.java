@@ -11,6 +11,8 @@ import org.brianodisho.twitter.sql.Database;
  */
  
 public class Main {
+    
+    private static final Scanner input = new Scanner(System.in);
  
     public static void main(String[] args) {
  
@@ -22,21 +24,16 @@ public class Main {
                 
         // Attempt to connect to Twitter with OAuth credentials
         Connection connection = new Connection(consumerKey, consumerSecret, accessToken, accessTokenSecret);
-        
-        // Instantiate Timeline object
         Timeline userTimeline = new Timeline(connection.getConnection());
-        
-        Scanner input = new Scanner(System.in);
+                
+        // Search for a user by screen name                 
+        do {
         System.out.print("Enter screen name...\t ");
-        
-        // Search for a user's recent tweets by screen name
         userTimeline.setUser(input.nextLine());
-        userTimeline.printUser();
-        
-        System.out.println("Press [Enter] to view the user's recent timeline...");
-        input.nextLine();
-        
-        userTimeline.refreshTimeline();
+        } while ( userTimeline.getUser() == null);
+
+        userTimeline.setTimeline();
+        userTimeline.printUser();        
         userTimeline.printTimeline();
 
         System.out.println("\nPress [Enter] to store the timeline to the database...");

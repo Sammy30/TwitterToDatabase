@@ -23,9 +23,9 @@ public class Database {
             connection = DriverManager.getConnection(server, user, pw);
 
         } catch (SQLException ex) {
-            System.err.printf("[!SQL EXCEPTION : %s]%n", ex);
+            System.err.printf("[!SQL EXCEPTION]%s%n", ex.getMessage());
         } catch (ClassNotFoundException ex) {
-            System.err.printf("[!CLASS NOT FOUND EXCEPTION : %s]%n", ex);
+            System.err.printf("[!CLASS NOT FOUND EXCEPTION]%s%n", ex.getMessage());
         }
 
         System.out.printf("[CONNECTION TO %s ESTABLISHED]%n", server);
@@ -38,7 +38,7 @@ public class Database {
         try {
             connection.close();
         } catch (SQLException ex) {
-            System.err.printf("[!SQL EXCEPTION : %s]%n", ex);
+            System.err.printf("[!SQL EXCEPTION]%s%n", ex.getMessage());
         }
 
         System.out.println("[CONNECTION TO SQL DATABASE CLOSED]");
@@ -83,7 +83,7 @@ public class Database {
             }
 
         } catch (SQLException ex) {
-            System.err.printf("[!SQL EXCEPTION : %s]%n", ex);
+            System.err.printf("[!SQL EXCEPTION]%s%n", ex.getMessage());
         }
 
         System.out.printf("[%d NEW ROWS ADDED TO \"twitter.tweet\" TABLE]%n", newRow);
@@ -109,7 +109,7 @@ public class Database {
             prepStatement.executeUpdate();
 
         } catch (SQLException ex) {
-            System.err.printf("[!SQL EXCEPTION : %s]%n", ex);
+            System.err.printf("[!SQL EXCEPTION]%s%n", ex.getMessage());
         }
 
     }
