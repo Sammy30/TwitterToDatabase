@@ -3,6 +3,9 @@
 /nbproject/
 
 
+*.mf
+*.xml
+*.properties
 *.class
 
 # Package Files #
