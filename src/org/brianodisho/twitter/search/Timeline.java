@@ -16,12 +16,10 @@ public class Timeline {
 
     // Constructor
     public Timeline(Twitter twitter) {
-
         this.twitter = twitter;
-
     }
 
-    // Searches twitter for a user associated with the screenName
+    // Set User object to twitter screenName
     public void setUser(String screenName) {
 
         try {
@@ -33,11 +31,9 @@ public class Timeline {
 
     }
 
-    // Returns the user object
+    // Returns the User object
     public User getUser() {
-
         return user;
-
     }
 
     // Assigns the timeline from the requested user to ResponseList<>
